@@ -1,0 +1,65 @@
+﻿.no-margin {
+    margin-left: 0 !important;
+}
+.product-desc {
+    text-align:center;
+    margin-right:2px;
+    padding:10px;
+    font-weight:600;
+    border-radius:5px 5px;
+    cursor:pointer;
+}
+.rooms-column {
+    padding:0;
+}
+.restricted-room {
+    background-color: #ccc;
+    color: white;
+}
+.one-occupied {
+    background-color: #1ab394;
+    color: white;
+
+}
+.two-occupied {
+    background-color: #1c84c6;
+    color: white;
+
+}
+.three-occupied {
+    background-color: #f8ac59;
+    color: white;
+
+}
+.full-room {
+    background-color: #ed5565;
+    color: white;
+
+}
+
+.avaliable-room {
+    background-color:aquamarine;
+}
+/*COLORS*/
+.inspinia-notify.alert-warning {
+  border-left: 6px solid #f8ac59;
+}
+.inspinia-notify.alert-success {
+  border-left: 6px solid #1c84c6;
+}
+.inspinia-notify.alert-danger {
+  border-left: 6px solid #ed5565;
+}
+.inspinia-notify.alert-info {
+  border-left: 6px solid #1ab394;
+}
+
+.modal-field {
+    padding-top: 15px;
+}
+label {
+    font-weight: 200;
+}
+.selected-room {
+    border: 2px solid red;
+}

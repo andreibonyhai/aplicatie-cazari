@@ -1,0 +1,70 @@
+<div class="col-md-12 animated fadeInLeft">
+    <div class="row">
+        <div class="col-md-12 ibox-title">
+            <h1 style="text-align:center">Detalii student</h1>
+        </div>
+        <div class="col-md-12 ibox-content">
+            <div class="col-md-6">
+                <h4>Nume: {{recievedStudent.firstName}} {{recievedStudent.lastName}}</h4>
+                <h4>CNP: {{recievedStudent.cnp}}</h4>
+                <h4>Telefon: {{recievedStudent.phone}}</h4>
+                <h4>E-mail: {{recievedStudent.email}}</h4>
+                <h4>Facultate: {{recievedStudent.faculty}}</h4>
+                <h4>An: {{recievedStudent.year}}</h4>
+            </div>
+            <div class="col-md-6">
+                <h4>Tara: {{recievedStudent.address.tara}}</h4>
+                <h4>Judet: {{recievedStudent.address.judet}}</h4>
+                <h4>Localitate: {{recievedStudent.address.localitate}}</h4>
+                <h4>Strada: {{recievedStudent.address.street}}</h4>
+                <h4>Nr: {{recievedStudent.address.number}} Bloc: {{recievedStudent.address.bloc}} Scara: {{recievedStudent.address.scara}} Ap: {{recievedStudent.address.apartament}}</h4>
+            </div>
+            <div class="col-md-12 ibox-footer">
+                <button class="col-md-2 col-md-offset-10 btn btn-primary">Adauga date</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 ibox-title">
+            <h1 style="text-align: center;">Selectati etajul</h1>
+            <div class="col-md-8 col-md-offset-2">
+                <select class="form-control col-md-8" [(ngModel)]="selectedFloor" (ngModelChange)="selectFloor($event)">
+                    <option *ngFor="let floor of floors" [ngValue]="floor">{{floor}}</option>
+                </select>
+            </div>
+          
+        </div>
+        <div class="col-md-12 ibox-content">
+            <h1 style="text-align:center">Selectati camera</h1>
+            <div class="col-md-6">
+                <div class="col-sm-1 btn btn-default" *ngFor="let room of roomsOnFloor"
+                     [ngClass]="{'3':'one-occupied','2':'two-occupied','1':'three-occupied','0':'full-room', '-1':'restricted-room'}[room.avaliablePlaces]"
+                     style="margin: 2px 2px;" (click)="selectRoom(room)" id="room{{room.name}}" >{{room.name}}</div>
+            </div>
+            <div class="col-md-6">
+                <h2>Detalii camera {{selectedRoom.name}}</h2>
+                <h3 *ngIf="selectedRoom.studentsInRoom.length ==0">Nici un student in camera</h3>
+                <table class="table" *ngIf="selectedRoom.studentsInRoom.length !=0">
+                    <thead>
+                    <tr>
+                        <th>Nume</th>
+                        <th>Facultate</th>
+                        <th>An</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor ="let student of selectedRoom.studentsInRoom">
+                        <td>{{student.firstName}} {{student.lastName}} </td>
+                        <td>{{student.faculty}}</td>
+                        <td>{{student.year}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+               <!--<h4 *ngFor="let student of selectedRoom.studentsInRoom">{{student.faculty}}{{student.year}}</h4>-->
+            </div>
+        </div>
+        <div class="col-md-12 ibox-footer">
+            <button class="btn btn-primary col-md-8 col-md-offset-2" (click)="cazeazaStudent(selectedRoom, recievedStudent)">Cazeaza student</button>
+        </div>
+    </div>
+</div>

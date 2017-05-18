@@ -1,0 +1,36 @@
+﻿<div class="row animated fadeInDown col-md-12">
+    <div class="col-md-12 ibox-content" style="padding-top: 3em; padding-bottom: 3em;">
+        <div class="col-md-10">
+            <input type="text" class="form-control" placeholder="Nume student" [(ngModel)]="studentSearchValue"/>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-block"  (click)="searchStudent(studentSearchValue)"><i class="fa fa-search"></i>Cauta</button>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="col-md-12 ibox-content">
+        <table class="table table-striped toggle-arrow-tiny" id="studentsTable">
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Judet</th>
+                    <th>Localitate</th>
+                    <th>Facultate</th>
+                    <th>An studiu</th>
+                    <th>Actiuni</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of returnedStudents">
+                    <td>{{student.firstName}} {{student.lastName}}</td>
+                    <td>{{student.address.judet}}</td>
+                    <td>{{student.address.localitate}}</td>
+                    <td>{{student.faculty}}</td>
+                    <td>{{student.year}}</td>
+                    <td><button class="btn btn-primary btn-sm" (click)="goToCazare(student)">Cazeaza</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

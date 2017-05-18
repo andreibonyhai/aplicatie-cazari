@@ -1,0 +1,69 @@
+<div class="middle-box text-center loginscreen animated fadeInDown" style="margin-top: 0">
+    <div>
+        <div>
+            <h1 class="logo-name">APC</h1>
+        </div>
+        <div>
+            <h3>Basic informations</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Prenume" [(ngModel)]="registeringStudent.firstName">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nume"[(ngModel)]="registeringStudent.lastName">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="CNP" [(ngModel)]="registeringStudent.cnp">
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Facultate" [(ngModel)]="registeringStudent.faculty">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="An" [(ngModel)]="registeringStudent.year">
+            </div>
+            <p>Data nasterii</p>
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="Data nasterii" [(ngModel)]="registeringStudent.dateofBirth">
+            </div>
+            
+        </div>
+        <div>
+            <h3>Address</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Tara" [(ngModel)]="registeringStudent.address.tara">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Judet" [(ngModel)]="registeringStudent.address.judet">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Localitate" [(ngModel)]="registeringStudent.address.localitate">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Strada" [(ngModel)]="registeringStudent.address.street">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Numar" [(ngModel)]="registeringStudent.address.number">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Bloc" [(ngModel)]="registeringStudent.address.bloc">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Scara" [(ngModel)]="registeringStudent.address.scara">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Apartament" [(ngModel)]="registeringStudent.address.apartament">
+            </div>
+        </div>
+        
+        <div>
+            <h3>Contact information</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Telefon" [(ngModel)]="registeringStudent.phone">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="registeringStudent.email">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="isSubmitting" (click)="registerStudent()">Register</button>
+</div>

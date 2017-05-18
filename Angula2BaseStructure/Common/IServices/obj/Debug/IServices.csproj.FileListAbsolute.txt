@@ -1,0 +1,13 @@
+D:\Workspace\SVN\Projects\trunk\Angular2Base\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.dll
+D:\Workspace\SVN\Projects\trunk\Angular2Base\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.pdb
+D:\Workspace\SVN\Projects\trunk\Angular2Base\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.dll
+D:\Workspace\SVN\Projects\trunk\Angular2Base\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.pdb
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.dll
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.pdb
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.dll
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.pdb
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\aplicatiecazari\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.dll
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\aplicatiecazari\Angula2BaseStructure\Common\IServices\bin\Debug\IServices.pdb
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\aplicatiecazari\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\aplicatiecazari\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.dll
+C:\Users\AndreiBonyhai\Desktop\Workspace\Licenta\aplicatiecazari\Angula2BaseStructure\Common\IServices\obj\Debug\IServices.pdb

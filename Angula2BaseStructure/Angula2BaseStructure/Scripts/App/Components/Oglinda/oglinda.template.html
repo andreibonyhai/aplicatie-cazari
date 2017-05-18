@@ -1,0 +1,99 @@
+﻿<div class="row col-md-12">
+     <div class="col-md-2">
+         <h4><i class="fa fa-circle" style="color:green"></i> {{openBeds}} locuri goale</h4>
+     </div>
+    <div class="col-md-2">
+        <h4><i class="fa fa-circle" style="color:red"></i> {{takenBeds}} locuri ocupate</h4>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="col-md-2 text-center">
+        <h2>Parter</h2>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsGroundFloor1" [ngClass]="{'3':'one-occupied','2':'two-occupied','1':'three-occupied','0':'full-room', '-1':'restricted-room'}[room1.avaliablePlaces]" class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room2 of roomsGroundFloor2"  [ngClass]="" class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+    </div>
+    <div class="col-md-2 text-center">
+           <h2>Etaj 1</h2>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsFloor11" [ngClass]="{'restricted-room': room1.totalPlaces == 0}" class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room2 of roomsFloor12" [ngClass]="{'restricted-room': room2.totalPlaces == 0}" class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+
+    </div>
+    <div class="col-md-2 text-center">
+        <h2>Etaj 2</h2>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsFloor21"  class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column" style="padding:0">
+            <div *ngFor="let room2 of roomsFloor22" class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+
+    </div>
+    <div class="col-md-2 text-center">
+        <h2>Etaj 3</h2>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsFloor31" class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room2 of roomsFloor32"  class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+
+    </div>
+    <div class="col-md-2 text-center">
+        <h2>Etaj 4</h2>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsFloor41" class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room2 of roomsFloor42"  class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+    </div>
+    <div class="col-md-2 text-center">
+        <h2>Etaj 5</h2>
+ 
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room1 of roomsFloor51"  class="ibox-content product-desc" (click)="showRoomModal(room1)">{{room1.name}}</div>
+        </div>
+        <div class="col-md-6 rooms-column">
+            <div *ngFor="let room2 of roomsFloor52"  class="ibox-content product-desc" (click)="showRoomModal(room2)">{{room2.name}}</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal inmodal fade" id="roomModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Camera {{detailsName}}</h2>
+            </div>
+            <div class="modal-body col-md-12">
+                <div class="col-md-6">
+                    <h3>Status camera</h3>
+                    <h4>Numar locuri: {{totalPlaces}}</h4>
+                    <h4 *ngIf="studentsInRoom.length == 0"> No students in room</h4>
+                    <h4 *ngIf="studentsInRoom.length == 1"> 1 students in room</h4>
+                    <h4 *ngIf="studentsInRoom.length == 2"> 2 students in room</h4>
+                    <h4 *ngIf="studentsInRoom.length == 3"> 3 students in room</h4>
+                    <h4 *ngIf="studentsInRoom.length == 4"> 4 students in room</h4>
+                </div>
+                <div class="col-md-6">
+                    <h3>Studenti cazati</h3>
+                    <h4>student test1</h4>
+                    <h4>student test1</h4>
+                    <h4>student test1</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

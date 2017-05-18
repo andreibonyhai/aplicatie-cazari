@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/build/libs/es6-shim/es6-shim.min.js"></script>
+    <script src="~/Scripts/build/libs/zone.js/dist/zone.js"></script>
+    <script src="~/Scripts/build/libs/reflect-metadata/Reflect.js"></script>
+    <script src="~/Scripts/build/libs/systemjs/dist/system.src.js"></script>
+    <script src="~/systemjs.config.js"></script>
+    <script>
+        System.import('Scripts/build/bootstrapper')
+            .then(null, console.error.bind(console));
+    </script>
+</head>
+<body>
+    @RenderBody()
+    @{ Html.RenderPartial("_ApiUrls"); }
+    @Scripts.Render("~/bundles/scripts")
+    @RenderSection("scripts", false)
+</body>
+</html>

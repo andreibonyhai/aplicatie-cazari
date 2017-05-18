@@ -1,0 +1,77 @@
+{
+  "name": "ag-grid-ng2",
+  "version": "5.0.0",
+  "description": "ag-Grid Angular 2 Component",
+  "main": "main.js",
+  "typings": "./main.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceolter/ag-grid-ng2.git"
+  },
+  "keywords": [
+    "grid",
+    "data",
+    "table",
+    "angular"
+  ],
+  "author": {
+    "name": "Niall Crosby",
+    "email": "niall.crosby@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ceolter/ag-grid-ng2/issues"
+  },
+  "homepage": "http://www.ag-grid.com/",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-typescript": "2.10.0",
+    "gulp-header": "1.7.0",
+    "merge2": "0.3.6",
+    "typescript": "1.8.10",
+    "systemjs": "0.19.27",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "^0.6.12"
+  },
+  "peerDependencies": {
+    "@angular/core": "~2.0.0-rc.2",
+    "ag-grid": "~5.0.0"
+  },
+  "dependencies": {},
+  "gitHead": "2e7158a5adaa275e4f4b3215cac27f131cb3a0bd",
+  "_id": "ag-grid-ng2@5.0.0",
+  "_shasum": "1aa29b98d01571495f85646f956d2a26b3158a30",
+  "_from": "ag-grid-ng2@>=5.0.0-alpha.0 <6.0.0",
+  "_npmVersion": "3.8.6",
+  "_nodeVersion": "6.0.0",
+  "_npmUser": {
+    "name": "ceolter",
+    "email": "niall.crosby@gmail.com"
+  },
+  "dist": {
+    "shasum": "1aa29b98d01571495f85646f956d2a26b3158a30",
+    "tarball": "https://registry.npmjs.org/ag-grid-ng2/-/ag-grid-ng2-5.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "ceolter",
+      "email": "niall.crosby@gmail.com"
+    },
+    {
+      "name": "seanlandsman",
+      "email": "sean@thelandsmans.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ag-grid-ng2-5.0.0.tgz_1468145418557_0.027691883966326714"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/ag-grid-ng2/-/ag-grid-ng2-5.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
