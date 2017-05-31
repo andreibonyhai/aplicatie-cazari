@@ -32,10 +32,20 @@ export class OglindaComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.dorm = this.oglindaService.createDorm(7);
+        //this.dorm = this.oglindaService.createDorm(1);
+        this.apiService.get<Dorm>($("#dorm-url").text() + "/GetDorm?dormId=" + 1).then(res => {
+            console.log(res, "create dorm get");
+            this.dorm = res;
+            this.populateRooms(this.dorm);
+
+        });
         this.oglindaService.testDorm(7);
         //1->18
-        for (var i = 1; i < 15; i++) {
+
+    }
+
+    populateRooms(dorm: Dorm) {
+        for (var i = 0; i < 14; i++) {
             this.roomsGroundFloor1.push(this.dorm.roomsGroundFloor[i]);
             this.roomsFloor11.push(this.dorm.roomsFloor1[i]);
             this.roomsFloor21.push(this.dorm.roomsFloor2[i]);
@@ -43,7 +53,7 @@ export class OglindaComponent implements OnInit {
             this.roomsFloor41.push(this.dorm.roomsFloor4[i]);
             this.roomsFloor51.push(this.dorm.roomsFloor5[i]);
         }
-        for (var i = 15; i < 29; i++) {
+        for (var i = 14; i < 28; i++) {
             this.roomsGroundFloor2.push(this.dorm.roomsGroundFloor[i]);
             this.roomsFloor12.push(this.dorm.roomsFloor1[i]);
             this.roomsFloor22.push(this.dorm.roomsFloor2[i]);
@@ -51,15 +61,9 @@ export class OglindaComponent implements OnInit {
             this.roomsFloor42.push(this.dorm.roomsFloor4[i]);
             this.roomsFloor52.push(this.dorm.roomsFloor5[i]);
         }
-        this.roomsGroundFloor1[1].avaliablePlaces = 0;
-        this.roomsGroundFloor1[2].avaliablePlaces = 2;
-        this.roomsGroundFloor1[3].avaliablePlaces = 3;
-        this.roomsGroundFloor1[4].avaliablePlaces = 1;
-        this.roomsGroundFloor1[5].avaliablePlaces = 3;
         console.log(this.dorm, "component dorm");
 
         //calculating avaliable/total places
-        
         for (var room of this.dorm.rooms) {
             this.totalBeds = Number(this.totalBeds + room.totalPlaces);
             if (room.avaliablePlaces != -1) {
@@ -69,12 +73,10 @@ export class OglindaComponent implements OnInit {
         this.takenBeds = this.totalBeds - this.openBeds;
         console.log(this.totalBeds, this.openBeds);
     }
-    totalBeds: number =0;
+
+    totalBeds: number = 0;
     takenBeds: number = 0;
-    openBeds:number =0;
-    seedDorm() {
-         
-    }
+    openBeds: number = 0;
     dorm: Dorm;
     roomsGroundFloor1 = [];
     roomsGroundFloor2 = [];
@@ -92,13 +94,13 @@ export class OglindaComponent implements OnInit {
     roomDetails: Room;
     detailsName = "";
     totalPlaces = 0;
-    studentsInRoom = new Array <Student>();
+    studentsInRoom = new Array<Student>();
     showRoomModal(room: Room) {
         this.detailsName = room.name;
         this.totalPlaces = room.totalPlaces;
         this.studentsInRoom = room.studentsInRoom;
 
-        console.log(room,"show modal");
+        console.log(room, "show modal");
         this.roomDetails = room;
         ($('#roomModal') as any).modal("show");
     }

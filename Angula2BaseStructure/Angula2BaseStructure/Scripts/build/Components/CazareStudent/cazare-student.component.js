@@ -27,21 +27,25 @@ var CazareStudentComponent = (function () {
         this.roomsOnFloor = new Array();
         this.recievedStudent = new Student_1.Student();
         this.selectedRoom = new Room_1.Room();
-        this.oldSelectedRoom = {};
+        this.oldSelectedRoom = new Room_1.Room();
+        this.oldBackgroundColor = "";
     }
     CazareStudentComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.apiService.get($("#dorm-url").text() + "/GetDorm?dormId=1").then(function (res) {
             _this.dorm = res;
-            console.log("got dorm", _this.dorm);
             _this.roomsOnFloor = _this.dorm.roomsGroundFloor;
+            console.log(_this.roomsOnFloor, "on init rooms on floor");
+            _this.selectedRoom = _this.roomsOnFloor[0];
+            console.log(_this.selectedRoom, "on init selected room");
+            _this.oldSelectedRoom = _this.roomsOnFloor[0];
+            console.log(_this.oldSelectedRoom, "on init old room");
+            _this.selectRoom(_this.roomsOnFloor[0]);
         });
     };
     CazareStudentComponent.prototype.routerOnActivate = function (current, previous) {
         this.selectedFloor = "Parter";
-        this.roomsOnFloor = this.dorm.roomsGroundFloor;
         this.recievedStudent = JSON.parse(current.params["student"]);
-        console.log(this.recievedStudent, "params");
         //this.selectedRoom = this.dorm.roomsGroundFloor[0];
     };
     CazareStudentComponent.prototype.selectFloor = function (event) {
@@ -60,31 +64,31 @@ var CazareStudentComponent = (function () {
         this.roomsOnFloor[4].avaliablePlaces = 1;
     };
     CazareStudentComponent.prototype.selectRoom = function (room) {
-        if (this.oldSelectedRoom === {}) {
-            this.oldSelectedRoom = room;
-        }
-        else {
-            this.oldSelectedRoom = this.selectedRoom;
-        }
+        this.oldSelectedRoom = this.selectedRoom;
+        this.oldBackgroundColor = $("#room" + room.name).css("background-color");
         this.selectedRoom = room;
-        console.log(this.oldSelectedRoom, "old");
-        var oldBackgroundColor = $("#room" + room.name).css("background-color");
-        //set backgrounds
-        //$("#room" + this.oldSelectedRoom.name).css("border", oldBackgroundColor);
-        $("#room" + room.name).css("background-color", "#45d5f9");
-        console.log(room, "selected room");
+        $("#room" + this.selectedRoom.name).css("background-color", "rgb(69, 213, 249)");
+        this.deselectRoom(this.oldSelectedRoom);
+    };
+    CazareStudentComponent.prototype.deselectRoom = function (room) {
+        this.oldSelectedRoom = room;
+        $("#room" + room.name).css("background-color", this.oldBackgroundColor);
     };
     CazareStudentComponent.prototype.cazeazaStudent = function (room, student) {
         var updatedRoom = room;
-        console.log(student, room, "enter req");
         room.studentsInRoom = new Array();
         room.studentsInRoom.push(student);
         var params = { dormId: this.dorm.dormId, roomId: room.roomId, studentId: student.studentId };
-        console.log(params);
         this.router.navigate(["/FinalizareCazare", { student: JSON.stringify(this.recievedStudent) }]);
         this.apiService.post($("#dorm-url").text() + "/CazeazaStudent", params).then(function (res) {
             console.log(params, "cazat");
         });
+    };
+    CazareStudentComponent.prototype.showStudentModal = function () {
+        $('#studentModal').modal("show");
+    };
+    CazareStudentComponent.prototype.adaugaDate = function () {
+        this.apiService.put($("#student-register-url").text(), this.recievedStudent).then();
     };
     CazareStudentComponent = __decorate([
         core_1.Component({

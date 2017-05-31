@@ -43,25 +43,9 @@ namespace Angula2BaseStructure.Controllers.Api.Dorm
             var room = dorm.Rooms.Find(r => r.RoomId == reqParams.roomId);
             var student = Repository.Find<Student>(reqParams.studentId);
             room.StudentsInRoom.Add(student);
+            room.AvaliablePlaces = room.AvaliablePlaces - 1;
             Repository.Update(room);
-            //var std = new Student();
-            //std.FirstName = student.FirstName;
-            //std.LastName = student.LastName;
-            //std.CNP = student.CNP;
-            //std.Faculty = student.Faculty;
-            //std.Year = student.Year;
-            //std.Phone = student.Phone;
-            //std.Email = student.Email;
-            //std.Address.Tara = student.Address.Tara;
-            //std.Address.Judet = student.Address.Judet;
-            //std.Address.Localitate = student.Address.Localitate;
-            //std.Address.Street = student.Address.Street;
-            //std.Address.Number = student.Address.Number;
-            //std.Address.Bloc = student.Address.Bloc;
-            //std.Address.Scara = student.Address.Scara;
-            //std.Address.Apartament = student.Address.Apartament;
-            //room.StudentsInRoom.Add(std);
-            //Repository.Update(room);
+      
 
 
         }

@@ -20,7 +20,7 @@
                 <h4>Nr: {{recievedStudent.address.number}} Bloc: {{recievedStudent.address.bloc}} Scara: {{recievedStudent.address.scara}} Ap: {{recievedStudent.address.apartament}}</h4>
             </div>
             <div class="col-md-12 ibox-footer">
-                <button class="col-md-2 col-md-offset-10 btn btn-primary">Adauga date</button>
+                <button class="col-md-2 col-md-offset-10 btn btn-primary" (click)="showStudentModal()">Adauga date</button>
             </div>
         </div>
     </div>
@@ -32,39 +32,138 @@
                     <option *ngFor="let floor of floors" [ngValue]="floor">{{floor}}</option>
                 </select>
             </div>
-          
+
         </div>
         <div class="col-md-12 ibox-content">
             <h1 style="text-align:center">Selectati camera</h1>
             <div class="col-md-6">
                 <div class="col-sm-1 btn btn-default" *ngFor="let room of roomsOnFloor"
                      [ngClass]="{'3':'one-occupied','2':'two-occupied','1':'three-occupied','0':'full-room', '-1':'restricted-room'}[room.avaliablePlaces]"
-                     style="margin: 2px 2px;" (click)="selectRoom(room)" id="room{{room.name}}" >{{room.name}}</div>
+                     style="margin: 2px 2px;" (click)="selectRoom(room)" id="room{{room.name}}">{{room.name}}</div>
             </div>
             <div class="col-md-6">
                 <h2>Detalii camera {{selectedRoom.name}}</h2>
                 <h3 *ngIf="selectedRoom.studentsInRoom.length ==0">Nici un student in camera</h3>
                 <table class="table" *ngIf="selectedRoom.studentsInRoom.length !=0">
                     <thead>
-                    <tr>
-                        <th>Nume</th>
-                        <th>Facultate</th>
-                        <th>An</th>
-                    </tr>
+                        <tr>
+                            <th>Nume</th>
+                            <th>Facultate</th>
+                            <th>An</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor ="let student of selectedRoom.studentsInRoom">
-                        <td>{{student.firstName}} {{student.lastName}} </td>
-                        <td>{{student.faculty}}</td>
-                        <td>{{student.year}}</td>
-                    </tr>
+                        <tr *ngFor="let student of selectedRoom.studentsInRoom">
+                            <td>{{student.firstName}} {{student.lastName}} </td>
+                            <td>{{student.faculty}}</td>
+                            <td>{{student.year}}</td>
+                        </tr>
                     </tbody>
                 </table>
-               <!--<h4 *ngFor="let student of selectedRoom.studentsInRoom">{{student.faculty}}{{student.year}}</h4>-->
+                <!--<h4 *ngFor="let student of selectedRoom.studentsInRoom">{{student.faculty}}{{student.year}}</h4>-->
             </div>
         </div>
         <div class="col-md-12 ibox-footer">
             <button class="btn btn-primary col-md-8 col-md-offset-2" (click)="cazeazaStudent(selectedRoom, recievedStudent)">Cazeaza student</button>
+        </div>
+    </div>
+</div>
+
+
+<!--ADAUGA DATE MODAL-->
+<div class="modal inmodal fade" id="studentModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body col-md-12">
+                <div class="col-md-6">
+                    <!--<h4>Nume: {{recievedStudent.firstName}} {{recievedStudent.lastName}}</h4>
+                    <h4>CNP: {{recievedStudent.cnp}}</h4>
+                    <h4>Telefon: {{recievedStudent.phone}}</h4>
+                    <h4>E-mail: {{recievedStudent.email}}</h4>
+                    <h4>Facultate: {{recievedStudent.faculty}}</h4>
+                    <h4>An: {{recievedStudent.year}}</h4>-->
+                    <table class="table">
+                        <tr>
+                            <td><h4>Nume: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.firstName"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Prenume: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.lastName"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>CNP: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.cnp"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Telefon: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.phone"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>E-mail: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.email"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Facultate: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.faculty"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>An: </h4></td>
+                            <td><input type="text" class="form-control" style="margin-bottom:10px" [(ngModel)]="recievedStudent.year"/></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="col-md-6">
+                    <table class="table">
+                        <tr>
+                            <td><h4>Tara: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.tara"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Judet: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.judet"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Localitate: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.localitate"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Strada: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.street"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Nr: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.number"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Bloc: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.bloc"/></td>
+                        </tr><tr>
+                            <td><h4>Scara: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.scara"/></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Apartament: </h4></td>
+                            <td><input type="text" class="form-control" [(ngModel)]="recievedStudent.address.apartament"/></td>
+                        </tr>
+
+                    </table>    
+                    <!--<h4>Tara: {{recievedStudent.address.tara}}</h4>
+                    <h4>Judet: {{recievedStudent.address.judet}}</h4>
+                    <h4>Localitate: {{recievedStudent.address.localitate}}</h4>
+                    <h4>Strada: {{recievedStudent.address.street}}</h4>
+                    <h4>Nr: {{recievedStudent.address.number}} Bloc: {{recievedStudent.address.bloc}} Scara: {{recievedStudent.address.scara}} Ap: {{recievedStudent.address.apartament}}</h4>-->
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-primary col-md-6 col-md-offset-3" (click)="adaugaDate()">Adauga</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

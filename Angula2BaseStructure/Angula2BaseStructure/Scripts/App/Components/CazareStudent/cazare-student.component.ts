@@ -30,23 +30,27 @@ export class CazareStudentComponent implements OnInit {
     }
     specialCases = new Array<SpecialCase>();
     dorm = new Dorm();
-    selectedFloor ="";
+    selectedFloor = "";
     floors = ["Parter", 1, 2, 3, 4, 5];
     roomsOnFloor = new Array<Room>();
     ngOnInit() {
-            this.apiService.get<Dorm>($("#dorm-url").text() + "/GetDorm?dormId=1").then(res => {
-                this.dorm = res;
-                console.log("got dorm", this.dorm);
-                this.roomsOnFloor = this.dorm.roomsGroundFloor;
-            });
+        this.apiService.get<Dorm>($("#dorm-url").text() + "/GetDorm?dormId=1").then(res => {
+            this.dorm = res;
+            this.roomsOnFloor = this.dorm.roomsGroundFloor;
+            console.log(this.roomsOnFloor, "on init rooms on floor");
+            this.selectedRoom = this.roomsOnFloor[0];
+            console.log(this.selectedRoom, "on init selected room");
+            this.oldSelectedRoom = this.roomsOnFloor[0];
+            console.log(this.oldSelectedRoom, "on init old room");
+            this.selectRoom(this.roomsOnFloor[0]);
+        });
     }
     recievedStudent = new Student();
     routerOnActivate(current: any, previous?: any) {
         this.selectedFloor = "Parter";
-        this.roomsOnFloor = this.dorm.roomsGroundFloor;
         this.recievedStudent = JSON.parse(current.params["student"]);
-        console.log(this.recievedStudent, "params");
         //this.selectedRoom = this.dorm.roomsGroundFloor[0];
+
 
     }
 
@@ -61,35 +65,39 @@ export class CazareStudentComponent implements OnInit {
         this.roomsOnFloor[4].avaliablePlaces = 1;
     }
     selectedRoom = new Room();
-    oldSelectedRoom = {};
+    oldSelectedRoom = new Room();
+    oldBackgroundColor = "";
     selectRoom(room: Room) {
-        if (this.oldSelectedRoom === {}) {
-            this.oldSelectedRoom = room;
-        } else {
-            this.oldSelectedRoom = this.selectedRoom;
-        }
+        this.oldSelectedRoom = this.selectedRoom;
+        this.oldBackgroundColor = $("#room" + room.name).css("background-color");
         this.selectedRoom = room;
-        console.log(this.oldSelectedRoom, "old");
-        var oldBackgroundColor = $("#room" + room.name).css("background-color");
-        //set backgrounds
-        //$("#room" + this.oldSelectedRoom.name).css("border", oldBackgroundColor);
-        $("#room" + room.name).css("background-color", "#45d5f9");
-        console.log(room, "selected room");
-
+        $("#room" + this.selectedRoom.name).css("background-color", "rgb(69, 213, 249)");
+        this.deselectRoom(this.oldSelectedRoom);
     }
-    cazeazaStudent(room: Room,student: Student) {
+    deselectRoom(room: Room) {
+        this.oldSelectedRoom = room;
+        $("#room" + room.name).css("background-color", this.oldBackgroundColor);
+    }
+
+    cazeazaStudent(room: Room, student: Student) {
         var updatedRoom = room;
-        console.log(student, room, "enter req");
         room.studentsInRoom = new Array<Student>();
         room.studentsInRoom.push(student);
         var params = { dormId: this.dorm.dormId, roomId: room.roomId, studentId: student.studentId }
-        console.log(params);
         this.router.navigate(["/FinalizareCazare", { student: JSON.stringify(this.recievedStudent) }]);
 
         this.apiService.post($("#dorm-url").text() + "/CazeazaStudent",params).then(res => {
             console.log(params, "cazat");
         });
-       
 
+
+    }
+
+    showStudentModal() {
+        ($('#studentModal') as any).modal("show");
+    }
+
+    adaugaDate() {
+        this.apiService.put($("#student-register-url").text(), this.recievedStudent).then();
     }
 }

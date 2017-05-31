@@ -40,10 +40,18 @@ var OglindaComponent = (function () {
         this.studentsInRoom = new Array();
     }
     OglindaComponent.prototype.ngOnInit = function () {
-        this.dorm = this.oglindaService.createDorm(7);
+        var _this = this;
+        //this.dorm = this.oglindaService.createDorm(1);
+        this.apiService.get($("#dorm-url").text() + "/GetDorm?dormId=" + 1).then(function (res) {
+            console.log(res, "create dorm get");
+            _this.dorm = res;
+            _this.populateRooms(_this.dorm);
+        });
         this.oglindaService.testDorm(7);
         //1->18
-        for (var i = 1; i < 15; i++) {
+    };
+    OglindaComponent.prototype.populateRooms = function (dorm) {
+        for (var i = 0; i < 14; i++) {
             this.roomsGroundFloor1.push(this.dorm.roomsGroundFloor[i]);
             this.roomsFloor11.push(this.dorm.roomsFloor1[i]);
             this.roomsFloor21.push(this.dorm.roomsFloor2[i]);
@@ -51,7 +59,7 @@ var OglindaComponent = (function () {
             this.roomsFloor41.push(this.dorm.roomsFloor4[i]);
             this.roomsFloor51.push(this.dorm.roomsFloor5[i]);
         }
-        for (var i = 15; i < 29; i++) {
+        for (var i = 14; i < 28; i++) {
             this.roomsGroundFloor2.push(this.dorm.roomsGroundFloor[i]);
             this.roomsFloor12.push(this.dorm.roomsFloor1[i]);
             this.roomsFloor22.push(this.dorm.roomsFloor2[i]);
@@ -59,11 +67,6 @@ var OglindaComponent = (function () {
             this.roomsFloor42.push(this.dorm.roomsFloor4[i]);
             this.roomsFloor52.push(this.dorm.roomsFloor5[i]);
         }
-        this.roomsGroundFloor1[1].avaliablePlaces = 0;
-        this.roomsGroundFloor1[2].avaliablePlaces = 2;
-        this.roomsGroundFloor1[3].avaliablePlaces = 3;
-        this.roomsGroundFloor1[4].avaliablePlaces = 1;
-        this.roomsGroundFloor1[5].avaliablePlaces = 3;
         console.log(this.dorm, "component dorm");
         //calculating avaliable/total places
         for (var _i = 0, _a = this.dorm.rooms; _i < _a.length; _i++) {
@@ -75,8 +78,6 @@ var OglindaComponent = (function () {
         }
         this.takenBeds = this.totalBeds - this.openBeds;
         console.log(this.totalBeds, this.openBeds);
-    };
-    OglindaComponent.prototype.seedDorm = function () {
     };
     OglindaComponent.prototype.showRoomModal = function (room) {
         this.detailsName = room.name;

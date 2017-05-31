@@ -71,7 +71,7 @@ namespace Repositories.EntityFramework.Migrations
                     //compute room name and check if room exists?
                     if (i < 10) computedRoomName = Int32.Parse(prefix + "0" + i);
                     else computedRoomName = Int32.Parse(prefix + i);
-                    if (restrictedRooms.Contains(i))
+                    if (restrictedRooms.Contains(computedRoomName))
                     {
                         room.TotalPlaces = 0;
                         room.AvaliablePlaces = 0;

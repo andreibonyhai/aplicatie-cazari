@@ -194,6 +194,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BusinessLogic\Declarations\IFileProcessor.cs" />
+    <Compile Include="BusinessLogic\Implementations\FileProcessorCsv.cs" />
     <Compile Include="Controllers\Api\Auth\AuthController.cs" />
     <Compile Include="Controllers\Api\CazareStudent\CazareStudentController.cs" />
     <Compile Include="Controllers\Api\Cazare\CazareController.cs" />
