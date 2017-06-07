@@ -31,7 +31,9 @@
                 <li [class.active]="router.isRouteActive(router.generate(['/CazareStudent']))">
                     <a [routerLink]="['CazareStudent']"><i class="fa fa-th-large"></i> <span class="nav-label">cazare student</span> </a>
                 </li>
-
+                <li [class.active]="router.isRouteActive(router.generate(['/StudentsUpload']))">
+                    <a [routerLink]="['StudentsUpload']"><i class="fa fa-th-large"></i> <span class="nav-label">student upload</span> </a>
+                </li>
                 <li [class.active]="router.isRouteActive(router.generate(['/StudentRegister']))">
                     <a [routerLink]="['StudentRegister']"><i class="fa fa-th-large"></i> <span class="nav-label">Register student</span> </a>
                 </li>

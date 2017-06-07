@@ -18,6 +18,7 @@ import {StudentRegisterComponent} from "../Components/StudentRegister/student-re
 import {CazareStudentComponent} from "../Components/CazareStudent/cazare-student.component";
 import {CautareStudentComponent} from "../Components/CautareStudent/cautare-student.component";
 import {FinalizareCazareComponent} from "../Components/FinalizareCazare/finalizare-cazare.component";
+import {StudentsUploadComponent} from "../Components/StudentsUpload/students-upload.component";
 
 import {User} from "../Entities/User";
 
@@ -30,6 +31,7 @@ import {User} from "../Entities/User";
     { path: "/cazare-student", name: "CazareStudent", component: CazareStudentComponent },
     { path: "/cautare-student", name: "CautareStudent", component: CautareStudentComponent },
     { path: "/finalizare-cazare", name: "FinalizareCazare", component: FinalizareCazareComponent },
+    { path: "/students-upload", name: "StudentsUpload", component: StudentsUploadComponent },
     { path: "/**", redirectTo: ["HomePage"] }
 ])
 @Component({

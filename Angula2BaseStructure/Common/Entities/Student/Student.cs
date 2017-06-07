@@ -14,14 +14,18 @@ namespace Entities.Students
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CNP { get; set; }
+        public string Serie { get; set; }
+        public string NrBuletin { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Faculty { get; set; }
+        public string Specialisation { get; set; }
         public string Year { get; set; }
         //contact
         public virtual Address Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public virtual Room Room { get; set; }
+        public string DormName { get; set; }
         public virtual SpecialCase SpecialCase { get; set; }
     }
 }

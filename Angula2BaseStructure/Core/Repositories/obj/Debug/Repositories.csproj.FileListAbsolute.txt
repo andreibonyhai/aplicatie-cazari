@@ -82,3 +82,6 @@ C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\C
 C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.csproj.GenerateResource.Cache
 C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.dll
 C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.pdb
+C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.EntityFramework.Migrations.AddedBuletinInfo.resources
+C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.EntityFramework.Migrations.UpdatedStudent.resources
+C:\Users\AndreiBonyhai\Desktop\Workspace\aplicatie-cazari\Angula2BaseStructure\Core\Repositories\obj\Debug\Repositories.EntityFramework.Migrations.AddedSectie.resources

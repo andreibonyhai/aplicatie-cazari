@@ -32,9 +32,12 @@ namespace Angula2BaseStructure.Controllers.Api.StudentRegister
             studentToUpdate.FirstName = student.FirstName;
             studentToUpdate.LastName = student.LastName;
             studentToUpdate.CNP = student.CNP;
+            studentToUpdate.Serie = student.Serie;
+            studentToUpdate.NrBuletin = student.NrBuletin;
             studentToUpdate.Email = student.Email;
             studentToUpdate.Phone = student.Phone;
             studentToUpdate.Faculty = student.Faculty;
+            studentToUpdate.Specialisation = student.Specialisation;
             studentToUpdate.Year = student.Year;
             studentToUpdate.Address.Tara = student.Address.Tara;
             studentToUpdate.Address.Judet = student.Address.Judet;

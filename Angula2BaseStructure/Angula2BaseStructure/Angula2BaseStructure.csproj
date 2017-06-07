@@ -194,7 +194,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BusinessLogic\Declarations\IDocumentGenerator.cs" />
     <Compile Include="BusinessLogic\Declarations\IFileProcessor.cs" />
+    <Compile Include="BusinessLogic\Implementations\DocumentGenerator.cs" />
     <Compile Include="BusinessLogic\Implementations\FileProcessorCsv.cs" />
     <Compile Include="Controllers\Api\Auth\AuthController.cs" />
     <Compile Include="Controllers\Api\CazareStudent\CazareStudentController.cs" />
@@ -265,6 +267,7 @@
     <Content Include="Scripts\App\Components\Oglinda\oglinda.template.html" />
     <Content Include="Scripts\App\Components\Auth\login.template.html" />
     <Content Include="Scripts\App\Components\StudentRegister\student-register.template.html" />
+    <Content Include="Scripts\App\Components\StudentsUpload\students-upload.template.html" />
     <Content Include="Scripts\App\Main\app.template.html" />
     <Content Include="Scripts\Vendor\bootstrap.js" />
     <Content Include="Scripts\Vendor\bootstrap.min.js" />
@@ -341,6 +344,7 @@
     <TypeScriptCompile Include="Scripts\App\Components\Oglinda\oglinda.component.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\Auth\login.component.ts" />
     <TypeScriptCompile Include="Scripts\App\Components\StudentRegister\student-register.component.ts" />
+    <TypeScriptCompile Include="Scripts\App\Components\StudentsUpload\students-upload.component.ts" />
     <TypeScriptCompile Include="Scripts\App\Entities\Dorm\Dorm.ts" />
     <TypeScriptCompile Include="Scripts\App\Entities\Dorm\Room.ts" />
     <TypeScriptCompile Include="Scripts\App\Entities\Student\Student.ts" />

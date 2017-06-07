@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Angula2BaseStructure.BusinessLogic.Implementations;
 using Angula2BaseStructure.Infrastructure.Controllers;
+using Entities.Students;
 using Entities.Utils;
 using IServices.Logging;
 using IServices.Mapping;
@@ -14,8 +16,9 @@ namespace Angula2BaseStructure.Controllers.Api.Cazare
     [RoutePrefix("api/Cazare")]
     public class CazareController : WebApiController
     {
-        public CazareController(IRepositoryService repositoryService, IMappingService mappingService, ILoggingService loggingService) : base(repositoryService, mappingService, loggingService)
+        public CazareController(DocumentGenerator documentGenerator,IRepositoryService repositoryService, IMappingService mappingService, ILoggingService loggingService) : base(repositoryService, mappingService, loggingService)
         {
+            
         }
 
         [HttpGet]
@@ -24,6 +27,8 @@ namespace Angula2BaseStructure.Controllers.Api.Cazare
         {
             return Repository.GetAll<SpecialCase>().ToList();
         }
+
+   
 
     }
 }

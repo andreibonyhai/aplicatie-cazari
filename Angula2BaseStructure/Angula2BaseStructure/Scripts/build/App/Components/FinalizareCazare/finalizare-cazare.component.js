@@ -42,6 +42,12 @@ var FinalizareCazareComponent = (function () {
             console.log(par, "added case");
         });
     };
+    FinalizareCazareComponent.prototype.generateContract = function () {
+        this.apiService.post($("#cazare-student-url").text(), this.recievedStudent.studentId)
+            .then(function (res) {
+            console.log("am cazat");
+        });
+    };
     FinalizareCazareComponent = __decorate([
         core_1.Component({
             selector: "finalizare-cazare",

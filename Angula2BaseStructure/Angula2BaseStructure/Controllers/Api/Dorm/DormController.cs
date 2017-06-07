@@ -44,7 +44,9 @@ namespace Angula2BaseStructure.Controllers.Api.Dorm
             var student = Repository.Find<Student>(reqParams.studentId);
             room.StudentsInRoom.Add(student);
             room.AvaliablePlaces = room.AvaliablePlaces - 1;
+            student.DormName = dorm.Name;
             Repository.Update(room);
+            Repository.Update(student);
       
 
 

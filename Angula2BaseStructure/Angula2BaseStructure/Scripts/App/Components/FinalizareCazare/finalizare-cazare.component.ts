@@ -58,4 +58,11 @@ export class FinalizareCazareComponent implements OnInit {
             console.log(par, "added case");
         });
     }
+
+    generateContract() {
+        this.apiService.post($("#cazare-student-url").text(), this.recievedStudent.studentId)
+            .then(res => {
+                console.log("am cazat");
+            });
+    }
 }

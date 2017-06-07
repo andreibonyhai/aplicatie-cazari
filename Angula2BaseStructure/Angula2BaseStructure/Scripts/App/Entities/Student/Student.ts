@@ -6,8 +6,11 @@ export class Student {
     firstName: string;
     lastName: string;
     cnp: string;
+    serie: string;
+    nrBuletin: string;
     dateofBirth: Date;
     faculty: string;
+    specialisation: string;
     year:string;
     address: Address;
     phone: string;

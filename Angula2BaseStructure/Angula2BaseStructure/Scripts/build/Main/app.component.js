@@ -26,6 +26,7 @@ var student_register_component_1 = require("../Components/StudentRegister/studen
 var cazare_student_component_1 = require("../Components/CazareStudent/cazare-student.component");
 var cautare_student_component_1 = require("../Components/CautareStudent/cautare-student.component");
 var finalizare_cazare_component_1 = require("../Components/FinalizareCazare/finalizare-cazare.component");
+var students_upload_component_1 = require("../Components/StudentsUpload/students-upload.component");
 var AppComponent = (function () {
     function AppComponent(http, authService, router) {
         this.authService = authService;
@@ -56,6 +57,7 @@ var AppComponent = (function () {
             { path: "/cazare-student", name: "CazareStudent", component: cazare_student_component_1.CazareStudentComponent },
             { path: "/cautare-student", name: "CautareStudent", component: cautare_student_component_1.CautareStudentComponent },
             { path: "/finalizare-cazare", name: "FinalizareCazare", component: finalizare_cazare_component_1.FinalizareCazareComponent },
+            { path: "/students-upload", name: "StudentsUpload", component: students_upload_component_1.StudentsUploadComponent },
             { path: "/**", redirectTo: ["HomePage"] }
         ]),
         core_1.Component({

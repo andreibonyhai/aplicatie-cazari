@@ -14,9 +14,23 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="CNP" [(ngModel)]="registeringStudent.cnp">
             </div>
-            
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Facultate" [(ngModel)]="registeringStudent.faculty">
+                <input type="text" class="form-control" placeholder="Serie" [(ngModel)]="registeringStudent.serie">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Numar CI" [(ngModel)]="registeringStudent.nrBuletin">
+            </div>
+            <div class="form-group">
+                <select class="form-control" [(ngModel)]="registeringStudent.faculty">
+                    <option value="Automatica si Calculatoare" selected="selected">Automatica si Calculatoare</option>
+                    <option value="Arhitectura si Urbanism">Arhitectura si Urbanism</option>
+                    <option value="Inginerie Electrica">Inginerie Electrica</option>
+                    <option value="Electrotehnica si Telecomunicatii">ETTI</option>
+                    <option value="Constructii">Constructii</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Specializare" [(ngModel)]="registeringStudent.specialisation">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="An" [(ngModel)]="registeringStudent.year">

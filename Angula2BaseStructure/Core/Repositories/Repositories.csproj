@@ -80,6 +80,18 @@
     <Compile Include="Migrations\201704161637216_AddedYearToStudent.Designer.cs">
       <DependentUpon>201704161637216_AddedYearToStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706071851537_AddedBuletinInfo.cs" />
+    <Compile Include="Migrations\201706071851537_AddedBuletinInfo.Designer.cs">
+      <DependentUpon>201706071851537_AddedBuletinInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706071917143_UpdatedStudent.cs" />
+    <Compile Include="Migrations\201706071917143_UpdatedStudent.Designer.cs">
+      <DependentUpon>201706071917143_UpdatedStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706071929565_AddedSectie.cs" />
+    <Compile Include="Migrations\201706071929565_AddedSectie.Designer.cs">
+      <DependentUpon>201706071929565_AddedSectie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704161637216_AddedYearToStudent.resx">
       <DependentUpon>201704161637216_AddedYearToStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706071851537_AddedBuletinInfo.resx">
+      <DependentUpon>201706071851537_AddedBuletinInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706071917143_UpdatedStudent.resx">
+      <DependentUpon>201706071917143_UpdatedStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706071929565_AddedSectie.resx">
+      <DependentUpon>201706071929565_AddedSectie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
