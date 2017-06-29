@@ -37,6 +37,7 @@ export class CautareStudentComponent implements OnInit {
     ngOnInit() {
         this.apiService.get<Array<Student>>($("#cazare-student-url").text()).then(result => {
             this.allStudents = result;
+            this.returnedStudents = this.allStudents;
             this.searchStudent("");
             console.log(this.allStudents, "allstudents");
 
@@ -45,7 +46,7 @@ export class CautareStudentComponent implements OnInit {
     searchStudent(input: string) {
         this.returnedStudents = new Array<Student>();
         for (var student of this.allStudents) {
-            if (student.firstName.startsWith(input) || student.lastName.startsWith(input)) {
+            if (student.firstName.toLowerCase().startsWith(input.toLowerCase()) || student.lastName.toLowerCase().startsWith(input.toLowerCase())) {
                 this.returnedStudents.push(student);
                 console.log("found", student);
             }
@@ -57,4 +58,5 @@ export class CautareStudentComponent implements OnInit {
         console.log(student);
         this.router.navigate(["/CazareStudent", { student: JSON.stringify(student) }]);
     }
+
 }

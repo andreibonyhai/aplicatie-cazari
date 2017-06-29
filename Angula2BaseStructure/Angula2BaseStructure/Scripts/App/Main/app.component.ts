@@ -23,16 +23,14 @@ import {StudentsUploadComponent} from "../Components/StudentsUpload/students-upl
 import {User} from "../Entities/User";
 
 @RouteConfig([
-    { path: "/home", name: "HomePage", component: HomePageComponent, useAsDefault: true },
-    { path: "/oglinda", name: "Oglinda", component: OglindaComponent },
+    { path: "/oglinda", name: "Oglinda", component: OglindaComponent, useAsDefault: true },
     { path: "/login", name: "Login", component: LoginComponent },
     { path: "/register", name: "Register", component: RegisterComponent },
     { path: "/student-register", name: "StudentRegister", component: StudentRegisterComponent },
     { path: "/cazare-student", name: "CazareStudent", component: CazareStudentComponent },
     { path: "/cautare-student", name: "CautareStudent", component: CautareStudentComponent },
     { path: "/finalizare-cazare", name: "FinalizareCazare", component: FinalizareCazareComponent },
-    { path: "/students-upload", name: "StudentsUpload", component: StudentsUploadComponent },
-    { path: "/**", redirectTo: ["HomePage"] }
+    { path: "/**", redirectTo: ["Oglinda"] }
 ])
 @Component({
     selector: "app",

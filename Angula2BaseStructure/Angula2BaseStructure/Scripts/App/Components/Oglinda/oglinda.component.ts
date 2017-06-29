@@ -94,14 +94,21 @@ export class OglindaComponent implements OnInit {
     roomDetails: Room;
     detailsName = "";
     totalPlaces = 0;
+    selectedRoom = new Room();
     studentsInRoom = new Array<Student>();
     showRoomModal(room: Room) {
         this.detailsName = room.name;
         this.totalPlaces = room.totalPlaces;
         this.studentsInRoom = room.studentsInRoom;
-
         console.log(room, "show modal");
         this.roomDetails = room;
         ($('#roomModal') as any).modal("show");
+    }
+    decazeazaStudent(student: Student) {
+        var params = { dormId: this.dorm.dormId, roomId: this.roomDetails.roomId, studentId: student.studentId }
+        this.apiService.post($("#dorm-url").text() + "/DecazeazaStudent", params).then(res => {
+            console.log(params, "cazat");
+            this.roomDetails.avaliablePlaces -= 1;
+        });
     }
 }

@@ -14,6 +14,7 @@ var main_1 = require("ag-grid-ng2/main");
 var router_deprecated_1 = require("@angular/router-deprecated");
 var common_1 = require("@angular/common");
 var api_service_1 = require("../../Infrastructure/Api/api.service");
+var Room_1 = require("../../Entities/Dorm/Room");
 var oglinda_service_1 = require("./oglinda.service");
 var OglindaComponent = (function () {
     function OglindaComponent(apiService, router, oglindaService) {
@@ -37,6 +38,7 @@ var OglindaComponent = (function () {
         this.roomsFloor52 = [];
         this.detailsName = "";
         this.totalPlaces = 0;
+        this.selectedRoom = new Room_1.Room();
         this.studentsInRoom = new Array();
     }
     OglindaComponent.prototype.ngOnInit = function () {
@@ -86,6 +88,14 @@ var OglindaComponent = (function () {
         console.log(room, "show modal");
         this.roomDetails = room;
         $('#roomModal').modal("show");
+    };
+    OglindaComponent.prototype.decazeazaStudent = function (student) {
+        var _this = this;
+        var params = { dormId: this.dorm.dormId, roomId: this.roomDetails.roomId, studentId: student.studentId };
+        this.apiService.post($("#dorm-url").text() + "/DecazeazaStudent", params).then(function (res) {
+            console.log(params, "cazat");
+            _this.roomDetails.avaliablePlaces -= 1;
+        });
     };
     OglindaComponent = __decorate([
         core_1.Component({

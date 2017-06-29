@@ -24,6 +24,7 @@ var CautareStudentComponent = (function () {
         var _this = this;
         this.apiService.get($("#cazare-student-url").text()).then(function (result) {
             _this.allStudents = result;
+            _this.returnedStudents = _this.allStudents;
             _this.searchStudent("");
             console.log(_this.allStudents, "allstudents");
         });
@@ -32,7 +33,7 @@ var CautareStudentComponent = (function () {
         this.returnedStudents = new Array();
         for (var _i = 0, _a = this.allStudents; _i < _a.length; _i++) {
             var student = _a[_i];
-            if (student.firstName.startsWith(input) || student.lastName.startsWith(input)) {
+            if (student.firstName.toLowerCase().startsWith(input.toLowerCase()) || student.lastName.toLowerCase().startsWith(input.toLowerCase())) {
                 this.returnedStudents.push(student);
                 console.log("found", student);
             }

@@ -18,7 +18,6 @@ var custom_http_service_1 = require("../Infrastructure/Http/custom-http.service"
 var cache_service_1 = require("../Infrastructure/Caching/cache.service");
 var storage_service_1 = require("../Infrastructure/Storage/storage.service");
 var auth_service_1 = require("../Infrastructure/Auth/auth.service");
-var home_page_component_1 = require("../Components/HomePage/home-page.component");
 var oglinda_component_1 = require("../Components/Oglinda/oglinda.component");
 var login_component_1 = require("../Components/Auth/login.component");
 var register_component_1 = require("../Components/Auth/register.component");
@@ -26,7 +25,6 @@ var student_register_component_1 = require("../Components/StudentRegister/studen
 var cazare_student_component_1 = require("../Components/CazareStudent/cazare-student.component");
 var cautare_student_component_1 = require("../Components/CautareStudent/cautare-student.component");
 var finalizare_cazare_component_1 = require("../Components/FinalizareCazare/finalizare-cazare.component");
-var students_upload_component_1 = require("../Components/StudentsUpload/students-upload.component");
 var AppComponent = (function () {
     function AppComponent(http, authService, router) {
         this.authService = authService;
@@ -49,16 +47,14 @@ var AppComponent = (function () {
     };
     AppComponent = __decorate([
         router_deprecated_1.RouteConfig([
-            { path: "/home", name: "HomePage", component: home_page_component_1.HomePageComponent, useAsDefault: true },
-            { path: "/oglinda", name: "Oglinda", component: oglinda_component_1.OglindaComponent },
+            { path: "/oglinda", name: "Oglinda", component: oglinda_component_1.OglindaComponent, useAsDefault: true },
             { path: "/login", name: "Login", component: login_component_1.LoginComponent },
             { path: "/register", name: "Register", component: register_component_1.RegisterComponent },
             { path: "/student-register", name: "StudentRegister", component: student_register_component_1.StudentRegisterComponent },
             { path: "/cazare-student", name: "CazareStudent", component: cazare_student_component_1.CazareStudentComponent },
             { path: "/cautare-student", name: "CautareStudent", component: cautare_student_component_1.CautareStudentComponent },
             { path: "/finalizare-cazare", name: "FinalizareCazare", component: finalizare_cazare_component_1.FinalizareCazareComponent },
-            { path: "/students-upload", name: "StudentsUpload", component: students_upload_component_1.StudentsUploadComponent },
-            { path: "/**", redirectTo: ["HomePage"] }
+            { path: "/**", redirectTo: ["Oglinda"] }
         ]),
         core_1.Component({
             selector: "app",

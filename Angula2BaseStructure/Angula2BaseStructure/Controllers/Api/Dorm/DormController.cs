@@ -51,6 +51,24 @@ namespace Angula2BaseStructure.Controllers.Api.Dorm
 
 
         }
+
+        [HttpPost]
+        [Route("DecazeazaStudent")]
+        public void DecazeazaStudent(CazareRequestParams reqParams)
+        {
+            //add student in room 
+            var dorm = Repository.Find<Entities.Dorm.Dorm>(reqParams.dormId);
+            var room = dorm.Rooms.Find(r => r.RoomId == reqParams.roomId);
+            var student = Repository.Find<Student>(reqParams.studentId);
+            room.StudentsInRoom.Remove(student);
+            room.AvaliablePlaces = room.AvaliablePlaces + 1;
+            student.DormName = null;
+            Repository.Update(room);
+            Repository.Update(student);
+        }
+
+
+
         [HttpPost]
         [Route("SetSpecialCase")]
         public void SetSpecialCase(AddSpecialCaseParams caseParams)

@@ -93,6 +93,7 @@
                                 <td>Student</td>
                                 <td>Facultate</td>
                                 <td>An</td>
+                                <td>Operatii</td>
                             </tr>
                             </thead>
                             <tbody>
@@ -100,6 +101,7 @@
                                 <td>{{student.firstName}} {{student.lastName}}</td>
                                 <td>{{student.faculty}}</td>
                                 <td>{{student.year}}</td>
+                                <td><button (click)="decazeazaStudent(student)" class="btn btn-danger btn-sm">Decazeaza</button></td>
                             </tr>
                             </tbody>
                         </table>

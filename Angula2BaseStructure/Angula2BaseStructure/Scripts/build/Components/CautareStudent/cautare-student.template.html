@@ -27,7 +27,8 @@
                     <td>{{student.address.localitate}}</td>
                     <td>{{student.faculty}}</td>
                     <td>{{student.year}}</td>
-                    <td><button class="btn btn-primary btn-sm" (click)="goToCazare(student)">Cazeaza</button></td>
+                    <td *ngIf="!student.room"><button class="btn btn-primary btn-sm" (click)="goToCazare(student)">Cazeaza</button></td>
+                    <td *ngIf="student.room"><button class="btn btn-danger btn-sm" disabled>Camera {{student.room.name}}</button></td>
                 </tr>
             </tbody>
         </table>
