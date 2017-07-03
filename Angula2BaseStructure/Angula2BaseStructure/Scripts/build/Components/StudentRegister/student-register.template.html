@@ -78,6 +78,17 @@
                 <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="registeringStudent.email">
             </div>
         </div>
+        <div>
+            <h3>Documente</h3>
+            <div class="form-group">
+                <div>
+                    <label for="uploadFile" class="col-md-12 btn  btn-info">Selecteaza documente</label>
+                    <input type="file" id="uploadFile" class="form-control" hidden style="display: none;" multiple (change)="onFileInputChange($event)"/>
+                </div>
+            </div>
+            <button class="btn btn-primary" (click)="confirmFiles()">confirm</button>
+            <br/><br/>
+        </div>
     </div>
     <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="isSubmitting" (click)="registerStudent()">Register</button>
 </div>

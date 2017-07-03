@@ -43,4 +43,15 @@ export class StudentRegisterComponent implements OnInit {
             console.log("req rez", result);
         });
     }
+    files=[];
+    onFileInputChange(event: Event) {
+        this.files = (event.target as any).files;
+        console.log(this.files, "files");
+    }
+
+    confirmFiles() {
+        var params = {folder:"C:/AAA", fileName:"asd.jpg", stream : this.files }
+        this.apiService.post($("#student-register-url").text() + "/SaveToDisk", null);
+
+    }
 }

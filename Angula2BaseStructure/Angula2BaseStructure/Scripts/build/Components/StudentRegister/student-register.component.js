@@ -21,6 +21,7 @@ var StudentRegisterComponent = (function () {
     function StudentRegisterComponent(apiService) {
         this.apiService = apiService;
         this.registeringStudent = new Student_1.Student();
+        this.files = [];
     }
     StudentRegisterComponent.prototype.ngOnInit = function () {
         this.registeringStudent = new Student_1.Student();
@@ -34,6 +35,14 @@ var StudentRegisterComponent = (function () {
             console.log("registered student", _this.registeringStudent);
             console.log("req rez", result);
         });
+    };
+    StudentRegisterComponent.prototype.onFileInputChange = function (event) {
+        this.files = event.target.files;
+        console.log(this.files, "files");
+    };
+    StudentRegisterComponent.prototype.confirmFiles = function () {
+        var params = { folder: "C:/AAA", fileName: "asd.jpg", stream: this.files };
+        this.apiService.post($("#student-register-url").text() + "/SaveToDisk", null);
     };
     StudentRegisterComponent = __decorate([
         core_1.Component({
