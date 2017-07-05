@@ -21,6 +21,7 @@ var StudentRegisterComponent = (function () {
     function StudentRegisterComponent(apiService) {
         this.apiService = apiService;
         this.registeringStudent = new Student_1.Student();
+        this.registerComplete = false;
         this.files = [];
     }
     StudentRegisterComponent.prototype.ngOnInit = function () {
@@ -34,6 +35,7 @@ var StudentRegisterComponent = (function () {
         this.apiService.post($('#student-register-url').text(), this.registeringStudent).then(function (result) {
             console.log("registered student", _this.registeringStudent);
             console.log("req rez", result);
+            _this.registerComplete = true;
         });
     };
     StudentRegisterComponent.prototype.onFileInputChange = function (event) {

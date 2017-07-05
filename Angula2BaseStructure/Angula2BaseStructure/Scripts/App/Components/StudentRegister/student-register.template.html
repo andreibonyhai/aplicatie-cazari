@@ -1,4 +1,15 @@
-﻿<div class="middle-box text-center loginscreen animated fadeInDown" style="margin-top: 0">
+﻿<div class="middle-box text-center loginscreen animated fadeInDown" style="margin-top: 0" *ngIf="registerComplete">
+    <div>
+        <div>
+            <h1 class="logo-name">APC</h1>
+        </div>
+        <h3>Succes</h3>
+        <p>Datele dumneavoastra au fost introduse cu succes.</p>
+        <p>Va multumim ca ati utilizat aplicatia. </p>
+    </div>
+</div>
+
+<div class="middle-box text-center loginscreen animated fadeInDown" style="margin-top: 0" *ngIf="!registerComplete">
     <div>
         <div>
             <h1 class="logo-name">APC</h1>
@@ -9,7 +20,7 @@
                 <input type="text" class="form-control" placeholder="Prenume" [(ngModel)]="registeringStudent.firstName">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nume"[(ngModel)]="registeringStudent.lastName">
+                <input type="text" class="form-control" placeholder="Nume" [(ngModel)]="registeringStudent.lastName">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="CNP" [(ngModel)]="registeringStudent.cnp">
@@ -39,7 +50,7 @@
             <div class="form-group">
                 <input type="date" class="form-control" placeholder="Data nasterii" [(ngModel)]="registeringStudent.dateofBirth">
             </div>
-            
+
         </div>
         <div>
             <h3>Adresa</h3>
@@ -68,7 +79,7 @@
                 <input type="text" class="form-control" placeholder="Apartament" [(ngModel)]="registeringStudent.address.apartament">
             </div>
         </div>
-        
+
         <div>
             <h3>Date contact</h3>
             <div class="form-group">
@@ -78,7 +89,7 @@
                 <input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="registeringStudent.email">
             </div>
         </div>
-        <div>
+        <!--<div>
             <h3>Documente</h3>
             <div class="form-group">
                 <div>
@@ -88,7 +99,7 @@
             </div>
             <button class="btn btn-primary" (click)="confirmFiles()">confirm</button>
             <br/><br/>
-        </div>
+        </div>-->
     </div>
     <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="isSubmitting" (click)="registerStudent()">Register</button>
 </div>
