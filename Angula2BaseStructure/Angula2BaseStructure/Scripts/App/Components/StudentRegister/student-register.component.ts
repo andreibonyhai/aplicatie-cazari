@@ -35,7 +35,7 @@ export class StudentRegisterComponent implements OnInit {
         ($("#wizard") as any).steps();
     }
     registeringStudent: Student = new Student();
-    registerComplete = false;
+    registerComplete = true;
     registerStudent() {
         console.log(this.registeringStudent);
         this.apiService.post<Student>($('#student-register-url').text(), this.registeringStudent).then(result => {

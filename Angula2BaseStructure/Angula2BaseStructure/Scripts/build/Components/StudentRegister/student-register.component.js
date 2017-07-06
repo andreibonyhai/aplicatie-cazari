@@ -21,7 +21,7 @@ var StudentRegisterComponent = (function () {
     function StudentRegisterComponent(apiService) {
         this.apiService = apiService;
         this.registeringStudent = new Student_1.Student();
-        this.registerComplete = false;
+        this.registerComplete = true;
         this.files = [];
     }
     StudentRegisterComponent.prototype.ngOnInit = function () {
